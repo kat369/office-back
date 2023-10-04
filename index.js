@@ -18,7 +18,7 @@ const app = express();
 app.use(bodyParser.urlencoded({limit:'30mb',extended:true}));
 app.use(bodyParser.json({limit:'30mb',extended:true}));
 app.use(cors({origin:"*",}));
-const PORT = 3002;
+const PORT = process.env.PORT;
 
 app.get("/server-admin", function (request, response) {
   response.send("Welcome to the Admin server");
