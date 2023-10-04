@@ -18,8 +18,6 @@ const app = express();
 app.use(bodyParser.urlencoded({limit:'30mb',extended:true}));
 app.use(bodyParser.json({limit:'30mb',extended:true}));
 app.use(cors({origin:"*",}));
-const PORT = process.env.PORT;
-
 app.get("/server-admin", function (request, response) {
   response.send("Welcome to the Admin server");
 });
@@ -34,4 +32,4 @@ app.use("/", LoginRoutes);
 app.use("/api/password-reset", PasswordResetRoutes);
 app.use('public/uploads',express.static("../project2/public/uploads"))
 
-app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));
+app.listen(process.env.PORT || 3002);
